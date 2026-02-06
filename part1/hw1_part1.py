@@ -13,7 +13,6 @@ import re
 # Compiled patterns
 # Mention: allow @ followed by:
 # - letters/digits/underscore
-# - allow internal spaces (e.g., "@angry barista" from the prompt)
 # - stop at punctuation/newline
 # Examples in prompt: @switchfoot, @Kenichan, @angry barista, @Alliana07
 MENTION_RE = re.compile(r'(?<!\w)@[A-Za-z0-9_]+')

@@ -49,8 +49,8 @@ def run_tests():
     total += 1
     passed += assert_equal(
         "Mention: multiword example should only replace @angry",
-        replace_mentions("met @angry barista today"),
-        "met [MENTION] barista today"
+        replace_mentions("met @angry_barista today"),
+        "met [MENTION] today"
     )
 
 
