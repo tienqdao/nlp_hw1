@@ -83,14 +83,11 @@ class BPE_Tokenizer:
             # Count pairs
             pairs = get_stats(vocab)
             if not pairs:
-                new_id = self.vocab_size
-                # record a placeholder merge so nothing breaks later (optional)
-                self.merges[(-1, -1, i)] = new_id   # unique dummy key
-                self.id_to_bytes[new_id] = b""      # empty bytes for dummy token
-                self.vocab_size += 1
+                self.id_to_bytes[self.vocab_size] = b""  # dummy entry for empty token
+                self.vocab_size += 1 # increase vocab size to account for the new token
                 continue
-                
 
+                
             # Find the most frequent pair
             best_pair = max(pairs, key=pairs.get)
             
