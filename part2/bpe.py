@@ -87,7 +87,6 @@ class BPE_Tokenizer:
                 self.vocab_size += 1 # increase vocab size to account for the new token
                 continue
 
-                
             # Find the most frequent pair
             best_pair = max(pairs, key=pairs.get)
             
