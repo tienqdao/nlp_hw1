@@ -14,7 +14,7 @@ import re
 # Mention: allow @ followed by:
 # - letters/digits/underscore
 # - stop at punctuation/newline
-# Examples in prompt: @switchfoot, @Kenichan, @angry barista, @Alliana07
+# Examples in prompt: @switchfoot, @Kenichan, @angry_barista, @Alliana07
 MENTION_RE = re.compile(r'(?<!\w)@[A-Za-z0-9_]+')
 
 # URL: cover common forms:

@@ -54,7 +54,7 @@ def merge_vocab(pair, vocab, new_token_id):
             else:
                 new_word.append(word_ids[i])
                 i += 1
-        new_vocab[tuple(new_word)] = freq
+        new_vocab[tuple(new_word)] = new_vocab.get(tuple(new_word), 0) + freq # Accumulate frequency
     return new_vocab
 
 # -----------------------------------------------------------------------------
@@ -83,7 +83,9 @@ class BPE_Tokenizer:
             # Count pairs
             pairs = get_stats(vocab)
             if not pairs:
-                break
+                self.id_to_bytes[self.vocab_size] = b""  # dummy entry for empty token
+                self.vocab_size += 1 # increase vocab size to account for the new token
+                continue
 
             # Find the most frequent pair
             best_pair = max(pairs, key=pairs.get)
